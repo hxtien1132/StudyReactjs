@@ -1,0 +1,91 @@
+import React from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup"
+// const validate =(values) =>{
+//   const errors ={};
+//   if(!values.firstName){ //gia tri null(rỗng)
+//     errors.firstName =  "requied";
+//   }else if(values.firstName.length >20){
+//     errors.firstName ="Must be 20 character or less"
+//   }
+//   //lastname
+//   if(!values.LastName){ //gia tri null(rỗng)
+//     errors.LastName =  "requied";
+//   }else if(values.LastName.length >20){
+//     errors.LastName ="Must be 20 character or less"
+//   }
+//   return errors;
+// }
+const SignUpForm = () => {
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      LastName: ""
+    },
+    // validate,
+    validationSchema : Yup.object({
+      firstName:Yup.string()
+      .max(20,'Must be 20 character or less') // quá 20 kí tự
+      .required('required'),//err k nhập vào
+      LastName:Yup.string()
+      .max(10,'Must be 10 character or less') // quá 10 kí tự
+      .required('required')//err k nhập vào
+
+    }) ,
+    onSubmit:(values) =>{
+      // console.log("sss"+values);
+    
+    },
+  });
+  console.log(formik);
+  return (
+    <form
+      onSubmit={formik.handleSubmit}
+      className="p-10 w-full max-w-[500px] mx-auto"
+      autoComplete="off"
+    >
+      <div className="flex flex-col gap-2 mb-4">
+        <label htmlFor="firstName">Firstname</label>
+        <input
+          type="text"
+          id="firstName"
+          // name="firstName"
+          placeholder="Enter your firstname"
+          className="p-4 rounded-md border border-gray-400"
+          //  value={formik.values.firstName }//prototype :dùng hiển thị lên input được
+          // onChange={formik.handleChange}// thay đổi giá trị
+          // onBlur={formik.handleBlur} //kiểm tra đã click vào input đó chx xong dùng touched để check
+          {...formik.getFieldProps('firstName')}
+        />
+        { formik.touched.firstName && formik.errors.firstName ? 
+        (<div className="text-sm text-red-500">{formik.errors.firstName}</div>) : null
+        }
+      </div>
+      <div className="flex flex-col gap-2 mb-4">
+        <label htmlFor="LastName">Lastname</label>
+        <input
+          type="text"
+          id="LastName"
+          placeholder="Enter your Lastname"
+          className="p-4 rounded-md border border-gray-400"
+          // name="LastName"
+          //  value={formik.values.LastName }//prototype :dùng hiển thị lên input được
+          // onChange={formik.handleChange}// thay đổi giá trị
+          // onBlur={formik.handleBlur}
+          {...formik.getFieldProps('LastName')}
+
+        />
+        { formik.touched.LastName && formik.errors.LastName ? 
+        (<div className="text-sm text-red-500">{formik.errors.LastName}</div>) : null
+        }
+      </div>
+      <div>
+        <button type="submit" className="w-full p-4 bg-blue-600 text-white font-semibold rounded-lg">
+          Submit
+        </button>
+      </div>
+    </form>
+  );
+};
+
+export default SignUpForm;

@@ -1,0 +1,4 @@
+// plugin-styled-components vd 42,43
+{
+    "plugins": ["babel-plugin-styled-components"]
+  }
