@@ -6,6 +6,12 @@ useEffect(()=>{
      return function cleanup() {
     }
 },[desp]) ;
++ UseEffect
+1. cập nhật lại state
+2. cập nhật dom(mutated)
+3. render lại Ui
+4. gọi cleanup nếu deps thay đổi
+5. gọi useEffect callback
 * Life CyCle*
 MOUTING:
  -- rendering
@@ -16,7 +22,6 @@ UPDATING:
  => run `useEffect ` nếu desp thay đổi
 UNMOUTING
  => run `useEffect cleanup`
-
 * side effect chia làm 2 loại *
 -- effect k cần clean up :gọi API, tương tác vs DOM
 -- effect cần clean up : setTimeOut,SetInterval,subscriptions
@@ -31,9 +36,7 @@ UNMOUTING
 --callback chạy khi deps đúng
 */
 const Note = () => {
-  useEffect(() => {
-  
-  })
+  useEffect(() => {});
   return <div></div>;
 };
 

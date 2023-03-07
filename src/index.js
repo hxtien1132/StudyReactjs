@@ -5,6 +5,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom"
 
+ //Fake comment
+function editComment(id) {
+  setInterval(() => {
+    window.dispatchEvent(
+      new CustomEvent(`lesson-${id}`, {
+      detail:`Content comment of lesson ${id}`
+      })
+    )
+  },2000)
+}
+editComment(1);
+editComment(2); 
+editComment(3); 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

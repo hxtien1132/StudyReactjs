@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FakeChatCmt from "../Exercise/FakeChatCmt";
 import UseEffectPreviewAvatar from "./UseEffect-previewAvatar";
 import UseEffectWithDefendencies from "./UseEffectWithDefendencies";
 import UseEffectWithDom from "./UseEffectWithDom";
@@ -13,7 +14,8 @@ const MainUseEffect = () => {
         /* <UseEffectWithDefendencies></UseEffectWithDefendencies> */
         /* <UseEffectWithDom></UseEffectWithDom> */
               /* <UseEffectWithTimerFunction></UseEffectWithTimerFunction> */
-              <UseEffectPreviewAvatar></UseEffectPreviewAvatar>
+        /* <UseEffectPreviewAvatar></UseEffectPreviewAvatar> */ 
+        <FakeChatCmt></FakeChatCmt>
       )}
     </div>
   );

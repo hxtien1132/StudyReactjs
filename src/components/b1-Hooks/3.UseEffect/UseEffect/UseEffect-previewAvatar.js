@@ -6,6 +6,8 @@ const UseEffectPreviewAvatar = () => {
     const file = e.target.files[0];
     file.preview = URL.createObjectURL(file);
     setAvartar(file);
+    e.target.value = null //để chọn 1 ảnh mà 2 lần trở lên vẫn set
+    console.log('123');
     };
     useEffect(() => {
         return () => {

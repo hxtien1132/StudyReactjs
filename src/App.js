@@ -1,7 +1,7 @@
 // import { Component, Fragment, useRef, useState } from "react";
 // import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import MainUseEffect from "./components/1c-UseEffect/UseEffect/MainUseEffect";
+
 
 // import { GlobalStyles } from './GlobalStyles';
 // import { ThemeProvider } from 'styled-components';
@@ -65,7 +65,7 @@ function App() {
       {/* <Mainperformance></Mainperformance> */}
       {/* <FirebaseApp></FirebaseApp> */}
       {/* <FirebaseAuth></FirebaseAuth> */}
-      <MainUseEffect></MainUseEffect>
+     
       
      
     </div>
