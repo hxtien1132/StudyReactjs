@@ -26,7 +26,8 @@ function App() {
     <div>
       {/* <ThemeProvider theme={theme}> </ThemeProvider> */}
       {/* <GlobalStyles></GlobalStyles> */}
-      <MainCrud></MainCrud>
+      {/* <MainCrud></MainCrud> */}
+      <h1>hxtoem</h1>
     </div>
   );
 }
