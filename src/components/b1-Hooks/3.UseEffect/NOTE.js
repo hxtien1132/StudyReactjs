@@ -6,6 +6,7 @@ useEffect(()=>{
      return function cleanup() {
     }
 },[desp]) ;
+++ useEffect sẽ giúp bạn xử lý các logic trong vòng đời của component và được gọi khi component có sự thay đổi.
 + UseEffect
 1. cập nhật lại state
 2. cập nhật dom(mutated)

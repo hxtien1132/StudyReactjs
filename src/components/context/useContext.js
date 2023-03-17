@@ -18,12 +18,15 @@ function useCount(props) {
     throw Error("usecount must be used within a CountProvide");
   return context;
 }
+
+//counterdisplay
 function CountDislay() {
   const [count] = useCount();
   console.log("count", count);
   return <div>the count is: {count}</div>;
 }
 
+//counter
 function Counter() {
   const [, setCount] = useCount();
   const increment = () => {
@@ -38,6 +41,7 @@ function Counter() {
     </button>
   );
 }
+//ui
 const UseContext = () => {
   return (
     <div className="p-5 flex items-center justify-items-center gap-x-5">

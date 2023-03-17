@@ -8,12 +8,12 @@ const fakeData = [
   {
     id: 1,
     url: "https://images.unsplash.com/photo-1667420114321-1dc9a7d4ac12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-    isFavorite: false,
+    isFavorite: true,
   },
   {
     id: 2,
     url: "https://images.unsplash.com/photo-1667405653753-5e4b4f69556b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyM3x8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60",
-    isFavorite: false,
+    isFavorite: true,
   },
   {
     id: 3,

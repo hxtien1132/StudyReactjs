@@ -1,0 +1,84 @@
+{
+  "employee": [
+    {
+      "id": 1,
+      "name": "json-server22222",
+      "email": "npm run sever",
+      "phone": "09898635345",
+      "active": true
+    },
+    {
+      "name": "json-server2222",
+      "email": "npm run sever",
+      "phone": "09898635345",
+      "id": 2,
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "hxtiennnnnn",
+      "email": "npm run sever",
+      "phone": "09898635345",
+      "active": true
+    },
+    {
+      "id": 4,
+      "name": "json-server",
+      "email": "npm run sever",
+      "phone": "09898635345",
+      "active": true
+    },
+    {
+      "id": 5,
+      "name": "hxtienC",
+      "email": "tienhxpd03585@fpt.edu.vn",
+      "phone": "0378686178",
+      "active": true
+    },
+    {
+      "name": "dcmmm",
+      "email": "asdasd",
+      "phone": "asdasdssss",
+      "active": false,
+      "id": 6
+    },
+    {
+      "name": "hxtien",
+      "email": "hxtien132@gmail.com",
+      "phone": "0378686178",
+      "active": false,
+      "id": 10
+    },
+    {
+      "name": "SS",
+      "email": "AA",
+      "phone": "SS",
+      "active": false,
+      "id": 11
+    },
+    {
+      "name": "aaa",
+      "email": "sss",
+      "phone": "ddd",
+      "active": false,
+      "id": 12
+    },
+    {
+      "name": "hxtien",
+      "email": "lelinhchi060901@gmail.com",
+      "phone": "09898635345",
+      "active": false,
+      "id": 13
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

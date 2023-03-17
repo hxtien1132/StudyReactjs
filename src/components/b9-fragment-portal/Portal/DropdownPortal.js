@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { useState } from "react";
-import useClickOutSide from "../../hooks/useClickOutSide"
+import useClickOutSide from "../../../hooks/useClickOutSide"
 import ReactDOM from "react-dom";
 
 const DropdownPortal = () => {
