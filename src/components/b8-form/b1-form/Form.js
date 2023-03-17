@@ -66,12 +66,12 @@ const Form = () => {
           placeholder="Enter your email address"
            onChange={handleChange}
         />
-        <input
+        {/* <input
           type="checkbox"
           name="hobby"
           id=""
           onChange={ handleChange}
-        />
+        /> */}
       <button type="submit" className=" p-3 text-white bg-blue-500 rounded-lg" onClick={handleSubmitForm}>submit</button>
 
       </form>
