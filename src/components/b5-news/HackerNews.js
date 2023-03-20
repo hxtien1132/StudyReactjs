@@ -35,7 +35,7 @@ const HackerNews = () => {
           setHits(response.data?.hits || []);
           setLoading(false);
         }
-      }, 3000);
+      }, 1000);
     } catch (error) {
       setLoading(false);
       setErrorMessage(`the error happend ${error}`);

@@ -1,8 +1,10 @@
 // import { Component, Fragment, useRef, useState } from "react";
 // import { Routes, Route } from "react-router-dom";
-import MainApp from "./components/b1-Hooks/99.TodoApp-ContextApi-localStorage/MainApp";
-import { TodoWrapper } from "./components/b1-Hooks/99.TodoApp-UseReducer/TodoWrapper";
-import MainCrud from "./components/b99.CRUD-UseState-ContextAPI/MainCrud";
+
+import Dropdown from "./components/b6-useRef/Dropdown";
+import Mainb6 from "./components/b6-useRef/Mainb6";
+import MainCustomHook from "./components/b7-Custom_Hook/b1-useLinknewtab/MainCustomHook";
+import MainApp from "./components/b8-form/b1-validatorForm/MainApp";
 import "./index.scss";
 // import { GlobalStyles } from './GlobalStyles';
 // import { ThemeProvider } from 'styled-components';
@@ -19,7 +21,7 @@ import "./index.scss";
 // }
 function App() {
   // const { show, setShow, nodeRef } = UseClickOutSide();
-  // const [openModalBase, setOpenModalBase] = useState(false);
+  // const [openModalBase, setOpenModalBase] = useState(false); 
   // const [openModal, setOpenModal] = useState(false);
   // const nodeRef = useRef(null);
   return (
@@ -27,7 +29,7 @@ function App() {
       {/* <ThemeProvider theme={theme}> </ThemeProvider> */}
       {/* <GlobalStyles></GlobalStyles> */}
       {/* <MainCrud></MainCrud> */}
-
+      <Mainb6></Mainb6>
     </div>
   );
 }

@@ -39,24 +39,29 @@ const Form = () => {
     }else{
       setNameError("")
     }
+    //  if (values.email === "") {
+    //    setNameError("your email is empty");
+    //  } else {
+    //    setNameError("");
+    //  }
   }
 
   console.log(values);
   return (
     <div className="p-5">
-      <form className=" flex gap-x-3" autoComplete="off" >
-      <div className="flex flex-col gap-3">
-      <input
-          type="text"
-          name="fullname"
-          id=""
-          className="w-full max-w-[300px] p-5 border border-solid
+      <form className=" flex gap-x-3" autoComplete="off">
+        <div className="flex flex-col gap-3">
+          <input
+            type="text"
+            name="fullname"
+            id=""
+            className="w-full max-w-[300px] p-5 border border-solid
              border-gray-200  rounded-lg "
-          placeholder="Enter your name"
-           onChange={handleChange}
-        />
-        {nameError}
-      </div>
+            placeholder="Enter your name"
+            onChange={handleChange}
+          />
+          {nameError}
+        </div>
         <input
           type="emal"
           name="email"
@@ -64,16 +69,23 @@ const Form = () => {
           className="w-full max-w-[300px] p-5 border border-solid
              border-gray-200  rounded-lg "
           placeholder="Enter your email address"
-           onChange={handleChange}
+          onChange={handleChange}
         />
+        {nameError}
+
         {/* <input
           type="checkbox"
           name="hobby"
           id=""
           onChange={ handleChange}
         /> */}
-      <button type="submit" className=" p-3 text-white bg-blue-500 rounded-lg" onClick={handleSubmitForm}>submit</button>
-
+        <button
+          type="submit"
+          className=" p-3 text-white bg-blue-500 rounded-lg"
+          onClick={handleSubmitForm}
+        >
+          submit
+        </button>
       </form>
       {/* <textarea name="message" id=""className='w-full max-w-[300px] p-5 border border-solid border-gray-200 rounded-lg'
             placeholder='enter your message' onChange={handleTextareaChange}>

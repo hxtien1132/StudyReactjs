@@ -22,6 +22,7 @@ function PostFilterForm(props) {
       clearTimeout(typingTimeoutRef.current);
     }
     typingTimeoutRef.current = setTimeout(() => {
+    console.log("typingTimeoutRef.current:", typingTimeoutRef.current);
       const formValues = {
         searchTerm: value,
       };

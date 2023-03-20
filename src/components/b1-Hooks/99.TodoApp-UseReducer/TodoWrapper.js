@@ -70,14 +70,10 @@ export const TodoWrapper = () => {
       type: "add_todo",
       payload: { id: uuidv4(), task: todo, completed: false, isEditing: false },
     });
-    // setTodos([
-    //   ...todos,
-    //   { id: uuidv4(), task: todo, completed: false, isEditing: false },
-    // ]);
+   
   };
 
   const deleteTodo = (id) => {
-    // setTodos(todos.filter((todo) => todo.id !== id));
     dispatch({
       type: "delete_todo",
       id: id,
@@ -89,11 +85,7 @@ export const TodoWrapper = () => {
       type: "toggle_complete",
       id: id,
     });
-    // setTodos(
-    //   todos.map((todo) =>
-    //     todo.id === id ? { ...todo, completed: !todo.completed } : todo
-    //   )
-    // );
+    
   };
 
   const editTodo = (id) => {
@@ -102,11 +94,7 @@ export const TodoWrapper = () => {
       type: "edit_todo",
       id: id,
     });
-    // setTodos(
-    //   todos.map((todo) =>
-    //     todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
-    //   )
-    // );
+ 
   };
 
   const editTask = (task, id) => {
@@ -115,11 +103,7 @@ export const TodoWrapper = () => {
       payloadTask: task,
       payloadId: id,
     });
-    // setTodos(
-    //   todos.map((todo) =>
-    //     todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo
-    //   )
-    // );
+    
   };
 
   return (

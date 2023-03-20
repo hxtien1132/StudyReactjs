@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import { useState } from "react";
-import UseClickOutSide from "../../hooks/useClickOutSide"
+import useClickOutSide from "../../hooks/useClickOutSide"
 
 const Dropdown = () => {
-  const {show, setshow, nodeRef} = UseClickOutSide();
+  const {show, setShow, nodeRef} = useClickOutSide();
   return (
     <div className="relative w-full max-w-[400px] " ref={nodeRef}>
-      <div className="p-5 border-solid border  border-gray-300 rounded-lg w-full cursor-pointer"
-      onClick={()=>setshow(!show)}>
+      <div className="p-5 border-solid border border-gray-300 rounded-lg w-full cursor-pointer"
+      onClick={()=>setShow(!show)}>
         selector
       </div>
       {/* true hiện ra */}
