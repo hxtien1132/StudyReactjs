@@ -1,29 +1,31 @@
 import React from "react";
 import { useFormik } from "formik";
-import * as Yup from "yup"
-const validate = (values) => {
+import * as Yup from "yup";
+const validateTest = (values) => {
   console.log(values);
-  const errors ={};
-  if(!values.firstName){ //gia tri null(rỗng)
-    errors.firstName =  "requied";
-  }else if(values.firstName.length >20){
-    errors.firstName ="Must be 20 character or less"
+  const errors = {};
+  if (!values.firstName) {
+    //gia tri null(rỗng)
+    errors.firstName = "requied";
+  } else if (values.firstName.length > 20) {
+    errors.firstName = "Must be 20 character or less";
   }
   //lastname
-  if(!values.LastName){ //gia tri null(rỗng)
-    errors.LastName =  "requied";
-  }else if(values.LastName.length >20){
-    errors.LastName ="Must be 20 character or less"
+  if (!values.LastName) {
+    //gia tri null(rỗng)
+    errors.LastName = "requied";
+  } else if (values.LastName.length > 20) {
+    errors.LastName = "Must be 20 character or less";
   }
   return errors;
-}
-const SignUpForm = () => {
+};
+const UseFormikExample = () => {
   const formik = useFormik({
     initialValues: {
       firstName: "",
-      LastName: ""
+      LastName: "",
     },
-    validate,
+    validate: validateTest,
     // validationSchema : Yup.object({
     //   firstName:Yup.string()
     //   .max(20,'Must be 20 character or less') // quá 20 kí tự
@@ -32,12 +34,23 @@ const SignUpForm = () => {
     //   .max(10,'Must be 10 character or less') // quá 10 kí tự
     //   .required('required')//err k nhập vào
     // }) ,
-    onSubmit:(values) =>{
-      // console.log("sss"+values);
-    
+    onSubmit: (values, actions) => {
+      console.log(values);
+      setTimeout(() => {
+        actions.resetForm({
+          firstName: "",
+          lastName: "",
+        });
+        actions.setSubmitting(false); //false click dk:true click k được
+        actions.setStatus(false);
+        status();
+      }, 5000); //s sau ms click lại được
+      function status() {
+        actions.setStatus(true);
+      }
     },
   });
-  // console.log(formik);
+  console.log(formik);
   return (
     <form
       onSubmit={formik.handleSubmit}
@@ -55,11 +68,11 @@ const SignUpForm = () => {
           //  value={formik.values.firstName }//prototype :dùng hiển thị lên input được
           // onChange={formik.handleChange}// thay đổi giá trị
           // onBlur={formik.handleBlur} //kiểm tra đã click vào input đó chx xong dùng touched để check
-          {...formik.getFieldProps('firstName')}
+          {...formik.getFieldProps("firstName")}
         />
-        { formik.touched.firstName && formik.errors.firstName ? 
-        (<div className="text-sm text-red-500">{formik.errors.firstName}</div>) : null
-        }
+        {formik.touched.firstName && formik.errors.firstName ? (
+          <div className="text-sm text-red-500">{formik.errors.firstName}</div>
+        ) : null}
       </div>
       <div className="flex flex-col gap-2 mb-4">
         <label htmlFor="LastName">Lastname</label>
@@ -72,19 +85,23 @@ const SignUpForm = () => {
           //  value={formik.values.LastName }//prototype :dùng hiển thị lên input được
           // onChange={formik.handleChange}// thay đổi giá trị
           // onBlur={formik.handleBlur}
-          {...formik.getFieldProps('LastName')}
+          {...formik.getFieldProps("LastName")}
         />
-        { formik.touched.LastName && formik.errors.LastName ? 
-        (<div className="text-sm text-red-500">{formik.errors.LastName}</div>) : null
-        }
+        {formik.touched.LastName && formik.errors.LastName ? (
+          <div className="text-sm text-red-500">{formik.errors.LastName}</div>
+        ) : null}
       </div>
       <div>
-        <button type="submit" className="w-full p-4 bg-blue-600 text-white font-semibold rounded-lg">
+        <button
+          type="submit"
+          className="w-full p-4 bg-blue-600 text-white font-semibold rounded-lg"
+        >
           Submit
         </button>
+        {formik.status && <p>hxtien</p>}
       </div>
     </form>
   );
 };
 
-export default SignUpForm;
+export default UseFormikExample;

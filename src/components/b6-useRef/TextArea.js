@@ -11,7 +11,7 @@ const TextArea = () => {
     setParentHeight(`${textareaRef?.current?.scrollHeight}px`);
     setTextareaHeight("auto");
   };
-  useLayoutEffect(() => {
+  useLayoutEffect(() => {   
     setTextareaHeight(`${textareaRef?.current?.scrollHeight}px`);
     setParentHeight(`${textareaRef?.current?.scrollHeight}px`);
   }, [text]);

@@ -3,8 +3,7 @@
 
 import Dropdown from "./components/b6-useRef/Dropdown";
 import Mainb6 from "./components/b6-useRef/Mainb6";
-import MainCustomHook from "./components/b7-Custom_Hook/b1-useLinknewtab/MainCustomHook";
-import MainApp from "./components/b8-form/b1-validatorForm/MainApp";
+import SignUpFormFinal from "./components/b8-form/99.ValidatorFomik.js/SignUpFormFinal";
 import "./index.scss";
 // import { GlobalStyles } from './GlobalStyles';
 // import { ThemeProvider } from 'styled-components';
@@ -28,8 +27,7 @@ function App() {
     <div>
       {/* <ThemeProvider theme={theme}> </ThemeProvider> */}
       {/* <GlobalStyles></GlobalStyles> */}
-      {/* <MainCrud></MainCrud> */}
-      <Mainb6></Mainb6>
+      <SignUpFormFinal></SignUpFormFinal>
     </div>
   );
 }
