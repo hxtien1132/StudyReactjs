@@ -17,7 +17,7 @@ const SignUpFormFinal = () => {
         email: "",
         intro: "",
         job: "",
-        favorites: [false, false, false, false, false],
+        favorites: ["","","","","",""],
         term: false,
       }}
       validationSchema={Yup.object({
@@ -36,7 +36,7 @@ const SignUpFormFinal = () => {
         
       // }}
       onSubmit={(values, actions) => {
-        console.log(values);
+        console.log("values",values);
         // console.log(actions);
         setTimeout(() => {
           actions.resetForm({
@@ -91,6 +91,7 @@ const SignUpFormFinal = () => {
                   className="mr-2"
                   name="favorites[0]"
                   id=""
+                  value={(formik.values.favorites[0] = "readbook")}
                   {...formik.getFieldProps("favorites[0]")}
                 />
                 read book
@@ -99,6 +100,7 @@ const SignUpFormFinal = () => {
                   className="mx-2"
                   name="favorites[1]"
                   id=""
+                  value={(formik.values.favorites[1] = "travel")}
                   {...formik.getFieldProps("favorites[1]")}
                 />
                 travel
@@ -107,6 +109,7 @@ const SignUpFormFinal = () => {
                   className="mx-2"
                   name="favorites[2]"
                   id=""
+                  value="music"
                   {...formik.getFieldProps("favorites[2]")}
                 />
                 music
@@ -115,6 +118,7 @@ const SignUpFormFinal = () => {
                   className="mx-2"
                   name="favorites[3]"
                   id=""
+                  value="food"
                   {...formik.getFieldProps("favorites[3]")}
                 />
                 food
@@ -123,6 +127,7 @@ const SignUpFormFinal = () => {
                   className="mx-2"
                   name="favorites[4]"
                   id=""
+                  value="def"
                   {...formik.getFieldProps("favorites[4]")}
                 />
                 def
@@ -146,10 +151,10 @@ const SignUpFormFinal = () => {
               <button
                 type="submit"
                 className="w-full p-4 bg-blue-600 text-white font-semibold rounded-lg "
-                style={formik.isSubmitting ? {background:"red" } : {} }
+                style={formik.isSubmitting ? { background: "red" } : {}}
                 disabled={formik.isSubmitting} //thời gian ms clicj lại được
               >
-                {formik.isSubmitting ? "Loading...":'submit'}
+                {formik.isSubmitting ? "Loading..." : "submit"}
               </button>
             </div>
           </Form>

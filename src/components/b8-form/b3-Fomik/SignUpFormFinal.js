@@ -22,7 +22,7 @@ const SignUpFormFinal = () => {
         terms: Yup.boolean().oneOf([true],"Please check the terms and conditions"),
       })}
       onSubmit={(values,actions) => {
-        // console.log(values);
+        console.log(values);
         // console.log(actions);  
         setTimeout(()=>{
             actions.resetForm({
@@ -39,7 +39,7 @@ const SignUpFormFinal = () => {
       
     >   
       {(formik)=>{
-        console.log(formik);
+        {/* console.log(formik); */}
         return  (
         <Form className="p-10 w-full max-w-[500px] mx-auto" autoComplete="off">
         <MyInput label="First name" name="firstName" placeholder="Enter your first name" id="firstName"></MyInput>
@@ -50,7 +50,6 @@ const SignUpFormFinal = () => {
            <option value="frontend">frontend</option>
             <option value="backend">backtend</option>
             <option value="fullstack">fullstack</option>
-
         </MySelectBox>
          <MyCheckBox name="terms">
             <p>I accept the term and conditions</p>

@@ -2,8 +2,8 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import useDebounce from "../../../hooks/useDebounce";
-import LoadingSkeleton from "../../loading/LoadingSkeleton";
+import useDebounce from "../../hooks/useDebounce";
+import LoadingSkeleton from "../loading/LoadingSkeleton";
 // https://api.themoviedb.org/3/movie/550?api_key=5a1549eca98425d82d3d4bedb789e02b
 //https://api.themoviedb.org/3/search/movie?api_key=5a1549eca98425d82d3d4bedb789e02b&query=''
 const MovieSearchMovie = () => {
