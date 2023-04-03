@@ -8,64 +8,92 @@ const SignUpFormFinal = () => {
       initialValues={{
         firstName: "",
         lastName: "",
-        email:"",
-        intro:"",
-        job:"",
-        term:false,  
+        email: "",
+        intro: "",
+        job: [],
+        term: false,
       }}
       validationSchema={Yup.object({
         firstName: Yup.string().required("Required"),
         lastName: Yup.string().required("Required"),
         email: Yup.string().email().required("Required"),
         intro: Yup.string().required("Required"),
-        job: Yup.string().required("Required"),
-        terms: Yup.boolean().oneOf([true],"Please check the terms and conditions"),
+        job: Yup.array().min(1).of(Yup.string().required()).required(),
+        terms: Yup.boolean().oneOf(
+          [true],
+          "Please check the terms and conditions"
+        ),
       })}
-      onSubmit={(values,actions) => {
+      onSubmit={(values, actions) => {
         console.log(values);
-        // console.log(actions);  
-        setTimeout(()=>{
-            actions.resetForm({
-                firstName: "",
-                lastName: "",
-                email:"",
-                intro:"",
-                job:"",
-                term:false,  
-            })
-             actions.setSubmitting(false)//false click dk:true click k được
-        },5000) //s sau ms click lại được
+        // console.log(actions);
+        setTimeout(() => {
+          actions.resetForm({
+            firstName: "",
+            lastName: "",
+            email: "",
+            intro: "",
+            job: "",
+            term: false,
+          });
+          actions.setSubmitting(false); //false click dk:true click k được
+        }, 5000); //s sau ms click lại được
       }}
-      
-    >   
-      {(formik)=>{
-        {/* console.log(formik); */}
-        return  (
-        <Form className="p-10 w-full max-w-[500px] mx-auto" autoComplete="off">
-        <MyInput label="First name" name="firstName" placeholder="Enter your first name" id="firstName"></MyInput>
-        <MyInput label="Last name" name="lastName" placeholder="Enter your last name" id="lastName"></MyInput>
-        <MyInput label="Email address" name="email" placeholder="Enter your email address" id="email" ></MyInput>
-        <MyTextArea label="Introduce Yourself" name="intro" placeholder="Enter intro yourself" id="intro"></MyTextArea>
-        <MySelectBox name="job" label="select your job" >
-           <option value="frontend">frontend</option>
-            <option value="backend">backtend</option>
-            <option value="fullstack">fullstack</option>
-        </MySelectBox>
-         <MyCheckBox name="terms">
-            <p>I accept the term and conditions</p>
-         </MyCheckBox>
-           
-        <div>      
-          <button
-            type="submit"
-            className="w-full p-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-red-400"
-            disabled={formik.isSubmitting} //thời gian ms clicj lại được
+    >
+      {(formik) => {
+        {
+          /* console.log(formik); */
+        }
+        return (
+          <Form
+            className="p-10 w-full max-w-[500px] mx-auto"
+            autoComplete="off"
           >
-            Submit
-          </button>
-        </div>
-      </Form>
-      )}}
+            <MyInput
+              label="First name"
+              name="firstName"
+              placeholder="Enter your first name"
+              id="firstName"
+            ></MyInput>
+            <MyInput
+              label="Last name"
+              name="lastName"
+              placeholder="Enter your last name"
+              id="lastName"
+            ></MyInput>
+            <MyInput
+              label="Email address"
+              name="email"
+              placeholder="Enter your email address"
+              id="email"
+            ></MyInput>
+            <MyTextArea
+              label="Introduce Yourself"
+              name="intro"
+              placeholder="Enter intro yourself"
+              id="intro"
+            ></MyTextArea>
+            <MySelectBox name="job" label="select your job">
+              <option value="frontend">frontend</option>
+              <option value="backend">backtend</option>
+              <option value="fullstack">fullstack</option>
+            </MySelectBox>
+            <MyCheckBox name="terms">
+              <p>I accept the term and conditions</p>
+            </MyCheckBox>
+
+            <div>
+              <button
+                type="submit"
+                className="w-full p-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-red-400"
+                disabled={formik.isSubmitting} //thời gian ms clicj lại được
+              >
+                Submit
+              </button>
+            </div>
+          </Form>
+        );
+      }}
     </Formik>
   );
 };

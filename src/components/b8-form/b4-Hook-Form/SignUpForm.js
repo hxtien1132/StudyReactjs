@@ -15,48 +15,69 @@ const SignUpForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting, isValid, isDirty, dirtyFields },
+    formState: {
+      errors,
+      isSubmitting,
+      isValid,
+      isDirty,
+      dirtyFields,
+      touchedFields,
+    },
     watch,
     reset,
-    resetField,
     setFocus,
+    resetField,
     setValue,
     control,
   } = useForm({
-    // resolver: yupResolver(schemaValidation),
-    mode: "onChange",
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      category: "",
+      checkbox: [],
+      radio: "",
+    },
+    resolver: yupResolver(schemaValidation),
+    mode: "onChange", // sử dụng để isValid trả về được true(isValid nó mặc định trả về false)
   });
-  // console.log("SignUpFormHook ~ dirtyFields", dirtyFields);
-  // console.log("SignUpFormHook ~ isSubmitting", isSubmitting);
+  // console.log("SignUpFormHook ~ resetField",resetField);
+  // console.log("SignUpFormHook ~ touchedfield", touchedFields); // trả về các filed đã chạm vào
+  // console.log("SignUpFormHook ~ isDirty", isDirty); // trả về true nếu có ít nhất 1 trường đã nhập
+  // console.log("SignUpFormHook ~ dirtyFields", dirtyFields);// trả về các field đã nhập
+  // console.log("SignUpFormHook ~ isSubmitting", isSubmitting); // đang submit
   // console.log("SignUpFormHook ~ errors", errors);
-  // console.log("SignUpFormHook ~ formState", formState);
-  // errors = formState.errors; {}
-  // console.log("SignUpFormHook ~ isDirty", isDirty);
-  // console.log("SignUpFormHook ~ isValid", isValid);
-  const watchShowAge = watch("showAge", false);
+  // console.log("SignUpFormHook ~ isValid", isValid);// nó luôn luôn trả về false
+                                                     // (chỉ khi các trường kia đúng hết cho dù các field kia k validate)
+  const watchShowAge = watch("showAge", false);// giúp kết hợp trạng thái trong lidate
   // console.log("SignUpFormHook ~ watchShowAge", watchShowAge);
   const onSubmit = async (values) => {
-    console.log("onSubmit ~ values", values);
-    if (isValid) {
-      // console.log("send data to backend");
-      // after successfuly submitted
-      // then reset form
-      reset({
-        firstName: "evondev",
-        lastName: "tuan",
-        email: "tuan@gmail.com",
-      });
-    }
+    // console.log("onSubmit ~ values", values);
+    // if (isValid) {
+    // console.log("send data to backend");
+    // after successfuly submitted
+    // then reset form
+    // resetField()
+    //   reset({
+    //     firstName: "evondev",
+    //     lastName: "tuan",
+    //     email: "tuan@gmail.com",
+    //   });
+    // }
     // const response = await axios.get(
     //   "https://hn.algolia.com/api/v1/search?query=react"
     // );
     // return response.data;
-    // return new Promise((resolve) => {
-    //   setTimeout(() => {
-    //     resolve();
-    //     console.log(values);
-    //   }, 5000);
-    // });
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve();
+        console.log(values);
+          reset({
+            firstName:"alo123",
+            lastName: "tuan",
+            email: "tuan@gmail.com",
+          });
+      }, 5000);
+    });
   };
   useEffect(() => {
     setFocus("firstName");
@@ -80,22 +101,22 @@ const SignUpForm = () => {
           id="firstName"
           placeholder="Enter your first name"
           className="p-4 rounded-md border border-gray-100"
-          {...register("firstName")}
-          // {...register("firstName", {
-          //   required: true,
-          //   maxLength: 10,
-          // })}
+          // {...register("firstName")}
+          {...register("firstName", {
+            required: true,
+            maxLength: 10,
+          })}
         />
         {errors?.firstName && (
           <div className="text-red-500 text-sm">
             {errors.firstName?.message}
           </div>
         )}
-        {/* {errors?.firstName?.type === "maxLength" && (
+        {errors?.firstName?.type === "maxLength" && (
           <div className="text-red-500 text-sm">
             Must be 10 characters or less
           </div>
-        )} */}
+        )}
       </div>
       <div className="flex flex-col gap-2 mb-5">
         <label htmlFor="lastName">Last name</label>
@@ -104,8 +125,15 @@ const SignUpForm = () => {
           id="lastName"
           placeholder="Enter your first name"
           className="p-4 rounded-md border border-gray-100"
-          {...register("lastName")}
+          {...register("lastName", {required: true, minLength: 3 })}
         />
+        {/* {touchedFields.lastName &&
+          errors?.lastName?.type === "required" && (
+            <p className="text-red-500 text-sm">ruquied</p>
+          )}
+        {errors?.firstName?.type === "minLength" && (
+          <p className="text-red-500 text-sm"> Must be 3 characters or less</p>
+        )} */}
       </div>
       <div className="flex flex-col gap-2 mb-5">
         <label htmlFor="email">Email address</label>
@@ -122,6 +150,42 @@ const SignUpForm = () => {
           className="p-4 rounded-md border border-gray-100"
           {...register("email")}
         /> */}
+        <select {...register("category")}>
+          <option value="">Select...</option>
+          <option value="A">Category A</option>
+          <option value="B">Category B</option>
+        </select>
+
+        <div className="flex flex-row gap-2 mb-5 justify-between items-center">
+          <label htmlFor="">Checkbox</label>
+          <div>
+            <input {...register("checkbox")} type="checkbox" value="A" />
+            <label htmlFor="">A</label>
+          </div>
+          <div>
+            <input {...register("checkbox")} type="checkbox" value="B" />
+            <label htmlFor="">B</label>
+          </div>
+          <div>
+            <input {...register("checkbox")} type="checkbox" value="C" />
+            <label htmlFor="">C</label>
+          </div>
+        </div>
+        <div className="flex flex-row gap-2 mb-5 justify-between items-center">
+          <label htmlFor="">Radio</label>
+          <div>
+            <input {...register("radio")} type="radio" value="A" />
+            <label htmlFor="">A</label>
+          </div>
+          <div>
+            <input {...register("radio")} type="radio" value="B" />
+            <label htmlFor="">B</label>
+          </div>
+          <div>
+            <input {...register("radio")} type="radio" value="C" />
+            <label htmlFor="">C</label>
+          </div>
+        </div>
       </div>
       <div className="flex flex-col gap-2 mb-5">
         <input type="checkbox" {...register("showAge")} />
